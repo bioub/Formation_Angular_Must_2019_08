@@ -1,0 +1,15 @@
+<h1>Welcome to Angular</h1>
+
+<h2>Helloworld, property binding et @Input</h2>
+<app-hello name="Eric"></app-hello>
+<app-hello [name]="'Eric'"></app-hello>
+<app-hello [name]="firstName"></app-hello>
+
+<h2>Event binding</h2>
+<app-counter></app-counter>
+<app-counter [count]="123" [step]="10"></app-counter>
+
+<h2>Select</h2>
+<app-select [selected]="selectedColor" (selectedChange)="selectedColor = $event"></app-select>
+<app-select [(selected)]="selectedColor"></app-select>
+<p>Vous avez sélectionné {{selectedColor}}</p>

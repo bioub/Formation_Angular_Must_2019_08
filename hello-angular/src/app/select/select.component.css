@@ -1,0 +1,9 @@
+:host {
+    display: block;
+}
+
+.selected {
+    width: 200px;
+    border: 1px solid grey;
+    padding: 0.5em;
+}

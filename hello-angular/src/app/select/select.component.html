@@ -1,0 +1,6 @@
+<!-- <div class="container" #container> -->
+    <div class="selected" (click)="opened = !opened">{{selected}}</div>
+    <div class="items" *ngIf="opened">
+        <div class="item" *ngFor="let item of items" (click)="selectItem(item)">{{item}}</div>
+    </div>
+<!-- </div> -->
