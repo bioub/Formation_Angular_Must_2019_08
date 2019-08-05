@@ -1,0 +1,6 @@
+<form (submit)="add($event)">
+  <!-- <input [value]="value" (input)="value = $event.target.value"> -->
+  <!-- <input [ngModel]="value" (ngModelChange)="value = $event"> -->
+  <input [(ngModel)]="value" name="todo">
+  <button>+</button>
+</form>
