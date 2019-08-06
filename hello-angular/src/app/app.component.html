@@ -10,6 +10,10 @@
 <app-counter [count]="123" [step]="10"></app-counter>
 
 <h2>Select</h2>
-<app-select [selected]="selectedColor" (selectedChange)="selectedColor = $event"></app-select>
+<app-select [items]="['Vert', 'Jaune', 'Gris']" [selected]="selectedColor" (selectedChange)="selectedColor = $event"></app-select>
 <app-select [(selected)]="selectedColor"></app-select>
 <p>Vous avez sélectionné {{selectedColor}}</p>
+
+<h2>Clock</h2>
+<app-clock *ngIf="show"></app-clock>
+<button (click)="show = !show">Toggle</button>

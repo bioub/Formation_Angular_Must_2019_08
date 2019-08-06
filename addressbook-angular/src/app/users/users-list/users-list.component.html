@@ -1,0 +1,17 @@
+<!-- <div class="list-group">
+  <a class="list-group-item list-group-item-action"
+     *ngFor="let user of users"
+     [routerLink]="[user.id]" routerLinkActive="active">
+    {{user.name}}
+  </a>
+</div> -->
+
+<div class="list-group">
+    <a class="list-group-item list-group-item-action"
+       *ngFor="let user of users$ | async"
+       [routerLink]="[user.id]" routerLinkActive="active">
+      {{user.name}}
+    </a>
+  </div>
+
+<a [routerLink]="['add']" class="btn btn-block btn-primary mt-3">Ajouter</a>
