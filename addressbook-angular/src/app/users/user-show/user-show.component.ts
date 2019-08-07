@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { Observable, ReplaySubject } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-user-show',
@@ -17,6 +18,7 @@ export class UserShowComponent implements OnInit {
   constructor(
     protected userService: UserService,
     protected activatedRoute: ActivatedRoute,
+    protected title: Title,
   ) { }
 
   ngOnInit() {
@@ -32,7 +34,8 @@ export class UserShowComponent implements OnInit {
     // user$.subscribe(this.user$);
 
     this.user$ = this.activatedRoute.params.pipe(
-      switchMap((params) => this.userService.getById$(params.id))
+      switchMap((params) => this.userService.getById$(params.id)),
+      tap((user) => this.title.setTitle(`${user.name} - AddressBook`)),
     );
   }
 

@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { delay } from 'rxjs/operators';
 
 @Injectable({
@@ -10,14 +9,16 @@ import { delay } from 'rxjs/operators';
 })
 export class UserService {
 
+  events$ = new EventEmitter<string>();
+
   constructor(protected httpClient: HttpClient) { }
 
   getAll$(): Observable<User[]> {
-    return this.httpClient.get<User[]>(environment.apiBaseUrl + '/users');
+    return this.httpClient.get<User[]>('/users');
   }
 
   getById$(id): Observable<User> {
-    const request$ = this.httpClient.get<User>(environment.apiBaseUrl + '/users/' + id);
+    const request$ = this.httpClient.get<User>('/users/' + id);
 
     if (id === '1') {
       return request$.pipe(delay(4000));
@@ -27,6 +28,6 @@ export class UserService {
   }
 
   create$(user: User): Observable<User>  {
-    return this.httpClient.post<User>(environment.apiBaseUrl + '/users', user);
+    return this.httpClient.post<User>('/users', user);
   }
 }

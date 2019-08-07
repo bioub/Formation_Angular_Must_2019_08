@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../user.model';
 import { Subscription, Observable } from 'rxjs';
 import { UserService } from '../user.service';
+import { filter, startWith, switchMapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users-list',
@@ -32,7 +33,19 @@ export class UsersListComponent implements OnInit {
   constructor(protected userService: UserService) { }
 
   ngOnInit() {
-    this.users$ = this.userService.getAll$();
+    // |-------d---------g--------e-r------f---r----s-r---
+    // filter((event) => event === 'refresh'),
+    // |----------------------------r----------r------r---
+    // startWith('refresh')
+    // |r---------------------------r----------r------r------------
+    // |-------[]------------------------[]--------------[]-----[]-
+    // switchMapTo(this.userService.getAll$())
+    // |-------[]------------------------[]---------------------[]-
+    this.users$ = this.userService.events$.pipe(
+      filter((event) => event === 'refresh'),
+      startWith('refresh'),
+      switchMapTo(this.userService.getAll$()),
+    );
   }
 
 }

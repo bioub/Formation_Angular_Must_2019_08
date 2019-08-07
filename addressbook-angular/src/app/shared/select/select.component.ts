@@ -9,7 +9,7 @@ import { Component, OnInit, Input, HostListener, ElementRef, Output, EventEmitte
 export class SelectComponent implements OnInit {
 
   // @ViewChild('container', {static: false}) container !: ElementRef;
-  
+
   @Input() opened = false;
   @Input() selected: string;
   @Input() items = ['Rouge', 'Vert', 'Bleu'];
