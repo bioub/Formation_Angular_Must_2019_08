@@ -15,6 +15,7 @@ import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';
 import localeFrSN from '@angular/common/locales/fr-SN';
 import localeFrSNExtra from '@angular/common/locales/extra/fr-SN';
+import { SelectModule } from 'must-components';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 registerLocaleData(localeFrSN, 'fr-SN', localeFrSNExtra);
@@ -31,6 +32,7 @@ registerLocaleData(localeFrSN, 'fr-SN', localeFrSNExtra);
     // UsersModule,
     AppRoutingModule,
     SharedModule,
+    SelectModule,
     HttpClientModule,
   ],
   providers: [

@@ -1,0 +1,7 @@
+<!-- <div class="container" #container> -->
+    <div class="selected" (click)="opened = !opened">{{selected}}</div>
+    <div class="items" *ngIf="opened">
+            <div class="item" [ngClass]="{'item-selected': item === selected}" *ngFor="let item of items" (click)="selectItem(item)">{{item}}</div>
+        <!-- <div class="item" [attr.role]="'button'" [style.backgroundColor]="'yellow'" [class.item-selected]="item === selected" *ngFor="let item of items" (click)="selectItem(item)">{{item}}</div> -->
+    </div>
+<!-- </div> -->

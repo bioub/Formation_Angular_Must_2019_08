@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "langage"
+		},
+		{
+			"path": "must-components"
 		}
 	]
 }
