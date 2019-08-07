@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserAddComponent } from './user-add.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UserAddComponent', () => {
   let component: UserAddComponent;
@@ -8,7 +11,15 @@ describe('UserAddComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserAddComponent ]
+      // providers: [
+      //   { provide: UserService, useValue: { create$() {} } }
+      // ],
+      declarations: [ UserAddComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        SharedModule,
+      ]
     })
     .compileComponents();
   }));

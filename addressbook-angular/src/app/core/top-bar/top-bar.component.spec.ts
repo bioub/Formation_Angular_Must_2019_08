@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopBarComponent } from './top-bar.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TopBarComponent', () => {
   let component: TopBarComponent;
@@ -8,7 +10,11 @@ describe('TopBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopBarComponent ]
+      declarations: [ TopBarComponent ],
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+      ]
     })
     .compileComponents();
   }));
